@@ -18,6 +18,6 @@
   ],
   "author": "Adam Farhi <yelled3@gmail.com> (https://github.com/yelled3)",
   "dependencies": {
-    "react-native": "^0.5.0",
+    "react-native": "^0.5.0"
   }
 }
