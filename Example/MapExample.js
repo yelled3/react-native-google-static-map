@@ -7,7 +7,7 @@ const {
     Component
     } = require('crowd-components');
 
-import GoogleStaticMap from './GoogleStaticMap';
+import GoogleStaticMap from './../GoogleStaticMap';
 
 
 const mockLocation = {
