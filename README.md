@@ -2,6 +2,9 @@
 A simple wrapper for an `<Image />` element with a url for Google's Static Maps:
 https://developers.google.com/maps/documentation/staticmaps/intro#quick_example
 
+Try out the API with:
+http://staticmapmaker.com/google/
+
 ## Installation
 ```
 npm install --save react-native-google-static-map
