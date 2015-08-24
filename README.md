@@ -1,4 +1,7 @@
-# react-native-google-static-map
+[![npm version](https://badge.fury.io/js/react-native-google-static-map.svg)](http://badge.fury.io/js/react-native-google-static-map)
+
+# react-native-google-static-map 
+
 A simple wrapper for an `<Image />` element with a url for Google's Static Maps:
 https://developers.google.com/maps/documentation/staticmaps/intro#quick_example
 
