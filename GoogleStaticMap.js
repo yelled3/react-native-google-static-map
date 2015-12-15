@@ -1,5 +1,6 @@
 import React from 'react-native';
 const {
+  Component,
   Image,
   PixelRatio
   } = React;
@@ -59,7 +60,7 @@ const {source, ...imagePropTypes} = Image.propTypes;
  *
  * @example: http://staticmapmaker.com/google/
  */
-class GoogleStaticMap {
+class GoogleStaticMap extends Component {
 
   /**
    * https://developers.google.com/maps/documentation/staticmaps/intro#api_key
