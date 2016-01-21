@@ -8,11 +8,11 @@ const {
 const defaultMapScale = ()=> {
   const isRetina = PixelRatio.get() >= 2;
   return isRetina ? 2 : 1;
-}
+};
 
 const values = (obj)=> {
   return Object.keys(obj).map(key => obj[key]);
-}
+};
 
 const IMAGE_FORMATS = {
   //png8 or png (default) specifies the 8-bit PNG format.
@@ -44,7 +44,7 @@ const MAP_TYPES = {
   //hybrid specifies a hybrid of the satellite and roadmap image,
   // showing a transparent layer of major streets and place names on the satellite image.
   HYBRID: 'hybrid'
-}
+};
 
 const IMAGE_FORMATS_VALUES = values(IMAGE_FORMATS);
 const MAP_TYPES_VALUES = values(MAP_TYPES);
@@ -65,13 +65,13 @@ class GoogleStaticMap extends Component {
   /**
    * https://developers.google.com/maps/documentation/staticmaps/intro#api_key
    */
-  static ApiKey = null
+  static ApiKey = null;
 
   static RootUrl = 'http://maps.googleapis.com/maps/api/staticmap';
 
-  static ImageFormats = IMAGE_FORMATS
+  static ImageFormats = IMAGE_FORMATS;
 
-  static MapTypes = MAP_TYPES
+  static MapTypes = MAP_TYPES;
 
   static propTypes = {
     ...imagePropTypes,
@@ -114,14 +114,14 @@ class GoogleStaticMap extends Component {
      * Add a marker on the center
      */
     hasCenterMarker: React.PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     scale: defaultMapScale(),
     format: IMAGE_FORMATS.PNG,
     mapType: MAP_TYPES.ROADMAP,
     hasCenterMarker: true
-  }
+  };
 
   render() {
     return (
