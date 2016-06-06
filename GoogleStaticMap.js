@@ -1,9 +1,5 @@
-import React from 'react-native';
-const {
-  Component,
-  Image,
-  PixelRatio
-  } = React;
+import {Image, PixelRatio} from 'react-native';
+import React, {Component} from 'react';
 
 const defaultMapScale = ()=> {
   const isRetina = PixelRatio.get() >= 2;
