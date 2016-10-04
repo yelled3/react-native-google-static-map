@@ -152,7 +152,7 @@ class GoogleStaticMap extends Component {
       hasCenterMarker
       } = this.props;
 
-    const markerParams = `markers=icon:dot%7Cshadow:true%7C${latitude},${longitude}`;
+    const markerParams = `markers=${latitude},${longitude}`;
     return hasCenterMarker ? markerParams : '';
   }
 
