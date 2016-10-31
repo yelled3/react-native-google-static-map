@@ -63,7 +63,7 @@ class GoogleStaticMap extends Component {
    */
   static ApiKey = null;
 
-  static RootUrl = 'http://maps.googleapis.com/maps/api/staticmap';
+  static RootUrl = 'https://maps.googleapis.com/maps/api/staticmap';
 
   static ImageFormats = IMAGE_FORMATS;
 
@@ -109,7 +109,9 @@ class GoogleStaticMap extends Component {
     /**
      * Add a marker on the center
      */
-    hasCenterMarker: React.PropTypes.bool
+    hasCenterMarker: React.PropTypes.bool,
+
+    key: React.PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -124,7 +126,9 @@ class GoogleStaticMap extends Component {
       <Image
         style={[this.props.style, this.props.size]}
         source={{uri: this.staticMapUrl}}
-      />
+      >
+      {this.props.children}
+      </Image>
     );
   }
 
@@ -141,7 +145,7 @@ class GoogleStaticMap extends Component {
 
     const {width, height} = size;
     const rootUrl = this.constructor.RootUrl;
-
+    
     return `${rootUrl}?center=${latitude},${longitude}&zoom=${zoom}&scale=${scale}&size=${width}x${height}&maptype=${mapType}&format=${format}&${this.markerParams}&${this.apiKeyParam}`;
   }
 
@@ -157,7 +161,8 @@ class GoogleStaticMap extends Component {
   }
 
   get apiKeyParam() {
-    const apiKey = this.constructor.ApiKey;
+    const apiKey = this.props.key;
+    
     return apiKey ? `key=${apiKey}` : '';
   }
 }
