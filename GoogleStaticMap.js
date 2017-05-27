@@ -109,7 +109,12 @@ class GoogleStaticMap extends Component {
     /**
      * Add a marker on the center
      */
-    hasCenterMarker: React.PropTypes.bool
+    hasCenterMarker: React.PropTypes.bool,
+
+    /**
+     * Marker's icon url, max 64x64 
+     */
+    markerUrl: React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -149,10 +154,14 @@ class GoogleStaticMap extends Component {
     const {
       latitude,
       longitude,
-      hasCenterMarker
+      hasCenterMarker,
+      markerUrl
       } = this.props;
 
-    const markerParams = `markers=${latitude},${longitude}`;
+    const markerParams = !!markerUrl
+      ? `markers=icon:${markerUrl}%7Cshadow:true%7C${latitude},${longitude}`
+      : `${latitude},${longitude}`;
+
     return hasCenterMarker ? markerParams : '';
   }
 
