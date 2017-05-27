@@ -5,7 +5,7 @@ const {
     View,
     Text,
     Component
-    } = require('crowd-components');
+    } = React;
 
 import GoogleStaticMap from './../GoogleStaticMap';
 
