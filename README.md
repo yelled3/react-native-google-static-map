@@ -25,6 +25,7 @@ class MapExample extends Component {
             longitude={'34.7748068'}
             zoom={13}
             size={{ width: 300, height: 550 }}
+            key={'YOUR-KEY-HERE'}
         />
     );
   }
@@ -41,7 +42,7 @@ class MapExample extends Component {
 |**`format`**|`string`|'png', 'png32', 'jpg', 'gif', 'jpg-baseline'. use the `GoogleStaticMap.ImageFormats` enum. default is `png`.|
 |**`mapType`**|`string`|'roadmap', 'satellite', 'terrain', 'hybrid'. use the `GoogleStaticMap.MapTypes` enum. default is `roadmap`.|
 |**`hasCenterMarker`**|`bool`|add a marker on the center. default is `true`.|
-
+|**`key`**|`string`|Google API Key|
 and also any `Image.propTypes`. 
 
 see: http://facebook.github.io/react-native/docs/image.html#props
