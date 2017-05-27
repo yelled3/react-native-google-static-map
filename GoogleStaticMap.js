@@ -63,7 +63,7 @@ class GoogleStaticMap extends Component {
    */
   static ApiKey = null;
 
-  static RootUrl = 'http://maps.googleapis.com/maps/api/staticmap';
+  static RootUrl = 'https://maps.googleapis.com/maps/api/staticmap';
 
   static ImageFormats = IMAGE_FORMATS;
 
