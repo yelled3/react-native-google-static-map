@@ -18,6 +18,7 @@
   ],
   "author": "Adam Farhi <yelled3@gmail.com> (https://github.com/yelled3)",
   "peerDependencies": {
-    "react-native": ">=0.6.0"
+    "react-native": ">=0.6.0",
+    "prop-types": "^15.5.10"
   }
 }
