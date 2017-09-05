@@ -112,7 +112,7 @@ class GoogleStaticMap extends Component {
      */
     hasCenterMarker: PropTypes.bool,
 
-    key: PropTypes.string.isRequired,
+    apiKey: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
