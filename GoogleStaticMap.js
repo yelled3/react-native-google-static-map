@@ -146,7 +146,7 @@ class GoogleStaticMap extends Component {
 
     const {width, height} = size;
     const rootUrl = this.constructor.RootUrl;
-    
+
     return `${rootUrl}?center=${latitude},${longitude}&zoom=${zoom}&scale=${scale}&size=${width}x${height}&maptype=${mapType}&format=${format}&${this.markerParams}&${this.apiKeyParam}`;
   }
 
@@ -162,8 +162,8 @@ class GoogleStaticMap extends Component {
   }
 
   get apiKeyParam() {
-    const apiKey = this.props.key;
-    
+    const apiKey = this.props.apiKey;
+
     return apiKey ? `key=${apiKey}` : '';
   }
 }
