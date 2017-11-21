@@ -25,7 +25,7 @@ class MapExample extends Component {
             longitude={'34.7748068'}
             zoom={13}
             size={{ width: 300, height: 550 }}
-            key={'YOUR-KEY-HERE'}
+            apiKey={'YOUR-KEY-HERE'}
         />
     );
   }
