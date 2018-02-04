@@ -1,5 +1,6 @@
 import {Image, PixelRatio} from 'react-native';
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 const defaultMapScale = ()=> {
   const isRetina = PixelRatio.get() >= 2;
@@ -63,7 +64,7 @@ class GoogleStaticMap extends Component {
    */
   static ApiKey = null;
 
-  static RootUrl = 'http://maps.googleapis.com/maps/api/staticmap';
+  static RootUrl = 'https://maps.googleapis.com/maps/api/staticmap';
 
   static ImageFormats = IMAGE_FORMATS;
 
@@ -72,13 +73,13 @@ class GoogleStaticMap extends Component {
   static propTypes = {
     ...imagePropTypes,
 
-    latitude: React.PropTypes.string.isRequired,
+    latitude: PropTypes.string.isRequired,
 
-    longitude: React.PropTypes.string.isRequired,
+    longitude: PropTypes.string.isRequired,
 
-    size: React.PropTypes.shape({
-      width: React.PropTypes.number.isRequired,
-      height: React.PropTypes.number.isRequired
+    size: PropTypes.shape({
+      width: PropTypes.number.isRequired,
+      height: PropTypes.number.isRequired
     }),
 
     /**
@@ -87,29 +88,31 @@ class GoogleStaticMap extends Component {
      *
      * @see https://developers.google.com/maps/documentation/staticmaps/intro#Zoomlevels
      */
-    zoom: React.PropTypes.number.isRequired,
+    zoom: PropTypes.number.isRequired,
 
     /**
      * scale affects the number of pixels that are returned.
      * scale=2 returns twice as many pixels as scale=1 while retaining the same coverage area and level of detail
      * The default value is calculated from the screen PixelRatio.
      */
-    scale: React.PropTypes.number,
+    scale: PropTypes.number,
 
     /**
      * @see https://developers.google.com/maps/documentation/staticmaps/intro#ImageFormats
      */
-    format: React.PropTypes.oneOf(IMAGE_FORMATS_VALUES),
+    format: PropTypes.oneOf(IMAGE_FORMATS_VALUES),
 
     /**
      * @see https://developers.google.com/maps/documentation/staticmaps/intro#MapTypes
      */
-    mapType: React.PropTypes.oneOf(MAP_TYPES_VALUES),
+    mapType: PropTypes.oneOf(MAP_TYPES_VALUES),
 
     /**
      * Add a marker on the center
      */
-    hasCenterMarker: React.PropTypes.bool
+    hasCenterMarker: PropTypes.bool,
+
+    apiKey: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -124,7 +127,9 @@ class GoogleStaticMap extends Component {
       <Image
         style={[this.props.style, this.props.size]}
         source={{uri: this.staticMapUrl}}
-      />
+      >
+      {this.props.children}
+      </Image>
     );
   }
 
@@ -157,7 +162,8 @@ class GoogleStaticMap extends Component {
   }
 
   get apiKeyParam() {
-    const apiKey = this.constructor.ApiKey;
+    const apiKey = this.props.apiKey;
+
     return apiKey ? `key=${apiKey}` : '';
   }
 }
