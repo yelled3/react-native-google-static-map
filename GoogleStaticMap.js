@@ -113,13 +113,16 @@ class GoogleStaticMap extends Component {
     hasCenterMarker: PropTypes.bool,
 
     apiKey: PropTypes.string.isRequired,
+
+    mapStyle: PropTypes.array,
   };
 
   static defaultProps = {
     scale: defaultMapScale(),
     format: IMAGE_FORMATS.PNG,
     mapType: MAP_TYPES.ROADMAP,
-    hasCenterMarker: true
+    hasCenterMarker: true,
+    mapStyle: []
   };
 
   render() {
@@ -165,6 +168,24 @@ class GoogleStaticMap extends Component {
     const apiKey = this.props.apiKey;
 
     return apiKey ? `apiKey=${apiKey}` : '';
+  }
+
+  get style(){
+    var styleParams = '';
+    const {mapStyle} = this.props;
+    mapStyle.forEach(function(style){
+      var styleString = '';
+      if(style.featureType && style.elementType && style.stylers){
+        styleString += `&style=feature:${style.featureType}|element:${style.elementType}`;
+        for (const [key, value] of Object.entries(style.stylers)) {
+          for (const [key2, value2] of Object.entries(value)) {
+            styleString += `|${key2}:${value2}`;
+          }
+        }
+      }
+      styleParams += styleString;
+    });
+    return styleParams;
   }
 }
 
