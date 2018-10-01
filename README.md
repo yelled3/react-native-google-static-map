@@ -43,6 +43,8 @@ class MapExample extends Component {
 |**`mapType`**|`string`|'roadmap', 'satellite', 'terrain', 'hybrid'. use the `GoogleStaticMap.MapTypes` enum. default is `roadmap`.|
 |**`hasCenterMarker`**|`bool`|add a marker on the center. default is `true`.|
 |**`apiKey`**|`string`|Google API Key|
+|**`onLoad`**|`function`|A function for handling image loading success|
+|**`onError`**|`function`|A function for handling image loading error|
 and also any `Image.propTypes`.
 
 see: http://facebook.github.io/react-native/docs/image.html#props
