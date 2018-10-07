@@ -164,7 +164,7 @@ class GoogleStaticMap extends Component {
   get apiKeyParam() {
     const apiKey = this.props.apiKey;
 
-    return apiKey ? `apiKey=${apiKey}` : '';
+    return apiKey ? `key=${apiKey}` : '';
   }
 }
 
