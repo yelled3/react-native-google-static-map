@@ -113,13 +113,19 @@ class GoogleStaticMap extends Component {
     hasCenterMarker: PropTypes.bool,
 
     apiKey: PropTypes.string.isRequired,
+
+    onError: PropTypes.func,
+
+    onLoad: PropTypes.func
   };
 
   static defaultProps = {
     scale: defaultMapScale(),
     format: IMAGE_FORMATS.PNG,
     mapType: MAP_TYPES.ROADMAP,
-    hasCenterMarker: true
+    hasCenterMarker: true,
+    onLoad: () => {},
+    onError: () => {}
   };
 
   render() {
@@ -127,6 +133,8 @@ class GoogleStaticMap extends Component {
       <Image
         style={[this.props.style, this.props.size]}
         source={{uri: this.staticMapUrl}}
+        onError={({nativeEvent: {error}}) => this.props.onError()}
+        onLoad={({nativeEvent: {error}}) => this.props.onLoad()}
       >
       {this.props.children}
       </Image>
