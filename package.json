@@ -1,6 +1,6 @@
 {
   "name": "react-native-google-static-map",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "A wrapper for Google's Static Maps",
   "main": "GoogleStaticMap.js",
   "repository": {
