@@ -1,4 +1,4 @@
-import {Image, PixelRatio} from 'react-native';
+import {Image, ImageBackground, PixelRatio} from 'react-native';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
@@ -130,14 +130,14 @@ class GoogleStaticMap extends Component {
 
   render() {
     return (
-      <Image
+      <ImageBackground
         style={[this.props.style, this.props.size]}
         source={{uri: this.staticMapUrl}}
         onError={({nativeEvent: {error}}) => this.props.onError()}
         onLoad={({nativeEvent: {error}}) => this.props.onLoad()}
       >
       {this.props.children}
-      </Image>
+      </ImageBackground>
     );
   }
 
